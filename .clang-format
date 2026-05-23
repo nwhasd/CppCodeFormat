@@ -1,0 +1,60 @@
+# .clang-format - C++ 代码格式化配置
+# 放在项目根目录下(和.sln同一个目录)，ClangFormat 会自动识别并应用这些规则
+
+# 基于 LLVM 风格进行定制
+BasedOnStyle: LLVM
+
+# 缩进宽度为 4 个空格
+IndentWidth: 4
+
+# 自定义大括号换行规则（需配合 BraceWrapping 使用）
+BreakBeforeBraces: Custom
+
+# 不限制行长度（0 表示禁用自动换行）
+ColumnLimit: 0
+
+# 禁止自动对 #include 进行排序，保持原有顺序
+SortIncludes: false
+
+# 控制各类声明后的大括号是否独占一行
+BraceWrapping:
+  AfterClass: true          # class 后的 { 换行
+  AfterControlStatement: true  # if/for/while 等控制语句后的 { 换行
+  AfterEnum: true           # enum 后的 { 换行
+  AfterFunction: true       # 函数定义后的 { 换行
+  AfterNamespace: true      # namespace 后的 { 换行
+  AfterObjCDeclaration: true # Objective-C 声明后的 { 换行（可忽略若不用 OC）
+  AfterStruct: true         # struct 后的 { 换行
+  AfterUnion: true          # union 后的 { 换行
+  BeforeCatch: true         # catch 前的 } 和 { 各自换行（如 }\n catch）
+  BeforeElse: true          # else 前的 } 和 else 各自换行（如 }\n else）
+  IndentBraces: false       # 大括号本身不额外缩进（保持与上层对齐）
+
+# ———————— 新增：对齐功能 ————————
+
+# 对齐连续的赋值语句中的等号（=）
+# 例如：
+#   width  = 800;
+#   height = 600;
+AlignConsecutiveAssignments: true
+
+# 对齐连续的变量声明中的变量名
+# 例如：
+#   int    x;
+#   double y;
+AlignConsecutiveDeclarations: true
+
+# 对齐连续的 #define 宏定义（适用于常量类宏）
+# 例如：
+#   #define WIDTH  800
+#   #define HEIGHT 600
+AlignConsecutiveMacros: true
+
+# 对齐行尾注释（// 开头的注释）
+# 例如：
+#   int a = 1;       // 初始化 a
+#   int b = 2;       // 初始化 b
+AlignTrailingComments: true
+
+# 可选：行尾注释前至少保留 2 个空格（提升可读性）
+SpacesBeforeTrailingComments: 2
