@@ -7,6 +7,9 @@ BasedOnStyle: LLVM
 # 缩进宽度为 4 个空格
 IndentWidth: 4
 
+# 启用预处理指令（如 #ifndef, #define, #endif）的缩进
+IndentPPDirectives: BeforeHash
+
 # 自定义大括号换行规则（需配合 BraceWrapping 使用）
 BreakBeforeBraces: Custom
 
